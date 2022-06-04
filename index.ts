@@ -30,3 +30,18 @@ class User {
     this.name = name;
   }
 }
+
+let 회원들: (number|string)[] = [1, '2', 3];
+let 오브젝트3: { a: string | number } = { a: '123' };
+
+let 이름2: any;
+이름2 = 123;
+이름2 = [];
+
+let 이름3: unknown;
+이름3 = 123;
+이름3 = {};
+
+// unknown 타입이 any보다 안전하다
+let 변수1: string = 이름2;
+// let 변수2: string = 이름3; 이거는 안된다 앞의 스트링 쉴드를 풀지 않음
