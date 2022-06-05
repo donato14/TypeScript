@@ -33,3 +33,20 @@ let 나이;
 // string + 1 (허용)
 // number + 1 (허용)
 // string|number + 1 (불가)
+function 함수(x) {
+    return x * 2;
+}
+함수(30);
+//함수에서 만큼은 void 타입 활용이 가능하다.(실수로 return 하는 것을 막아준다)
+function func1(x) {
+    1 + 1;
+}
+func1(2);
+//자바스크립트와 다른점 - 타입지정된 파라미터는 필수이다.
+//파라미터가 옵션인 경우엔 = 파라미터변수?:타입
+//변수?:number는 변수:number|undefined와 같다
+// function 함수2(x: number | string): void {
+//   if () {
+//     console.log(x + 3)
+//   }
+// }

@@ -28,3 +28,32 @@ let 학교: {
 }
 학교.score[4] = false;
 학교.friend = ['Lee', 학교.teacher]
+
+function hi(name?: string) {
+  if (name) {
+    console.log('안녕하세요' + name)
+  } else {
+    console.log('이름을 입력하세요')
+  }
+}
+
+hi('홍길동')
+
+function 자릿수세기(x: number | string) :number {
+  return x.toString().length
+}
+
+function CanMarryPercent(money :number, house:boolean, charm:string):string|void {
+  let score: number = 0;
+  if (house) {
+    score += 500;
+  }
+  if (charm == '상') {
+    score += 100
+  }
+  score += money;
+
+  if (score >= 600) {
+    return '결혼가능'
+  }
+}
