@@ -72,8 +72,49 @@ func1(2)
 //파라미터가 옵션인 경우엔 = 파라미터변수?:타입
 //변수?:number는 변수:number|undefined와 같다
 
-// function 함수2(x: number | string): void {
-//   if () {
-//     console.log(x + 3)
-//   }
-// }
+//Type이 아직 하나로 확정되지 않았을 경우 Type Narrowing을 사용한다
+function 함수2(x: number | string) {
+  if (typeof x === 'string') {
+    return x + '1'
+  } else {
+    return x + 1
+  }
+}
+함수2(123);
+
+function 함수3(x: number | string) {
+  let array: number[] = [];
+  if (typeof x === 'number') {
+    array[0] = x;
+  } else {
+    //if 문을 썼으면 끝까지 써야 안전. else, else if 안쓰면 에러로 잡아 줄 수도 있다
+  }
+  //Narrowing으로 판정해주는 문법들
+  //typeof 변수
+  //속성명 in 오브젝트 자료
+  //인스턴스 instanceof 부모
+
+}
+함수3(123)
+
+//assertion 문법 (타입 덮어쓰기)
+function 함수4(x: number | string) {
+  let array: number[] = [];
+  array[0] = x as number;
+
+}
+함수4(123);
+
+//빠따 안맞기 위한 assertion 문법의 용도
+//1. Narrowing 할 떄
+  let 이름4: string = 'kim';
+  // 이름4 as number; 
+  //유니온 타입의 확정을 위해 assetion을 사용하는 것이지 이렇게 타입을 변경하기 위한 방법으론 사용하지 못한다
+
+//2. 무슨 타입이 들어올지 100% 확실할 때
+  //as 문법을 사용한 뒤 함수 파라미터에 as 문법으로 지정한 타입이 아닌 다른 타입이 들어와도 버그를 캐치하지 못하게 된다
+
+//그러니까 그냥 if문을 사용하자. 남이 짠 코드 수정할때, 왜 타입에러가 나는지 모를때, 디버깅용 비상용
+//예전 as 문법은
+// <number>이름4
+
